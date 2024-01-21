@@ -22,6 +22,8 @@ public class Client {
 	private String cpf;
 	private String address;
 
+	public Client() {}
+	
 	public Client(Long id, String name, String email, String cpf, String address) {
 		this.id = id;
 		this.name = name;
