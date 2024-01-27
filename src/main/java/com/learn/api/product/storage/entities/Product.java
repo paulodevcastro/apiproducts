@@ -26,12 +26,15 @@ public class Product {
 	@JoinColumn(name = "client_id")
 	private Client client;
 	
-	public Product(Long id, String name, String description, Double price, LocalDate moment) {
+	public Product() {}
+	
+	public Product(Long id, String name, String description, Double price, LocalDate moment, Client client) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.moment = moment;
+		this.client = client;
 	}
 
 	public Long getId() {
@@ -72,6 +75,14 @@ public class Product {
 
 	public void setMoment(LocalDate moment) {
 		this.moment = moment;
+	}
+	
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.learn.api.product.storage.entities.Product;
 import com.learn.api.product.storage.repositories.ProductRepository;
@@ -37,12 +38,14 @@ public class ProductService {
 		}
 	}
 	
+	@Transactional
 	public Product saveProduct(Product product) {
 		validateNewProduct(product);
 		priceBelowZero(product);
 		return productRepository.save(product);
 	}
 	
+	@Transactional
 	public void deleteProductById(Long id) {
 		productRepository.deleteById(id);
 	}

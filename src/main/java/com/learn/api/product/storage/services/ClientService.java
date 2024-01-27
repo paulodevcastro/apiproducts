@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.learn.api.product.storage.entities.Client;
 import com.learn.api.product.storage.repositories.ClientRepository;
@@ -25,10 +26,12 @@ public class ClientService {
 		return clientRepository.findById(id);
 	}
 	
+	@Transactional
 	public Client saveClient(Client client) {
 		return clientRepository.save(client);
 	}
 	
+	@Transactional
 	public void deleteClient(Long id) {
 		this.clientRepository.deleteById(id);
 	}
